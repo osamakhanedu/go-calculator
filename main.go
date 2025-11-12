@@ -8,6 +8,14 @@ import (
 	"strings"
 )
 
+// keep track of calcualtion
+type Calculation struct {
+	Expression string
+	Result     float64
+}
+
+var history []Calculation
+
 func main() {
 	fmt.Println("🚀 go Calculator v1.0")
 	fmt.Println("=======================")
