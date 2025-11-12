@@ -18,16 +18,16 @@ func main() {
 
 		displayMenu()
 
-		fmt.Print("Enter choice (1-5): ")
+		fmt.Print("Enter choice (1-6): ")
 		choice, _ := reader.ReadString('\n')
 		choice = strings.TrimSpace(choice)
 
-		if choice == "5" {
+		if choice == "6" {
 			fmt.Println("Exiting the calculator. Goodbye!")
 			break
 		}
 
-		if choice < "1" || choice > "5" {
+		if choice < "1" || choice > "6" {
 			fmt.Println("Invalid choice. Please select a valid operation.")
 			continue
 		}
@@ -54,7 +54,8 @@ func displayMenu() {
 	fmt.Println("2. Subtraction (-)")
 	fmt.Println("3. Multiplication (*)")
 	fmt.Println("4. Division (/)")
-	fmt.Println("5. Exit")
+	fmt.Println("5. Power (^)")
+	fmt.Println("6. Exit")
 }
 
 func getNumbers(reader *bufio.Reader) (float64, float64) {
@@ -90,6 +91,8 @@ func performCalculation(choice string, num1, num2 float64) (float64, error) {
 		return Multiply(num1, num2), nil
 	case "4":
 		return Divide(num1, num2)
+	case "5":
+		return Power(num1, num2), nil
 	default:
 		return 0, fmt.Errorf("Invalid operation")
 
